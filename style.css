@@ -96,7 +96,7 @@ button:active{
 }
 
 .new{
-    /* display:none; */
+    display:none;
     position:absolute;
     top: 10px;
     right:10px;
