@@ -59,6 +59,7 @@ for( let i=0; i<buttons.length; i++){
                             for(let j=0; j<correctWord.length; j++){
                                 if(guessedWord[i]===correctWord[j] && match[j]===0){
                                     match[i] = 2;
+                                    correctWord[j]='#';
                                     break;
                                 }
                             }
