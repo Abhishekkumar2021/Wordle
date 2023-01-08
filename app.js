@@ -38,7 +38,6 @@ for (var i = 0; i < buttons.length; i++) {
         else if (letter === 'Enter') {
             if (idx == correctWord.length) {
                 // Have to do some logic work here
-                var matched = [0, 0, 0, 0, 0];
                 if (!includes(guessedWord.toLowerCase(), words)) {
                     alertBox.classList.toggle('active');
                     alertBox.innerHTML = "Word not in the list !";
@@ -67,14 +66,18 @@ for (var i = 0; i < buttons.length; i++) {
                     }
                     for (var i_3 = 0; i_3 < correctWord.length; i_3++) {
                         var letterDiv = document.querySelector(".character_".concat(guess).concat(i_3));
+                        var button = document.querySelector("#".concat(guessedWord[i_3].toUpperCase()));
                         if (match[i_3] === 0) {
                             letterDiv.classList.add("incorrect");
+                            button.classList.add("incorrect");
                         }
                         else if (match[i_3] === 1) {
                             letterDiv.classList.add("correct");
+                            button.classList.add("correct");
                         }
                         else if (match[i_3] === 2) {
                             letterDiv.classList.add("present");
+                            button.classList.add("present");
                         }
                     }
                     if (guessedWord === correctWord) {
@@ -82,19 +85,19 @@ for (var i = 0; i < buttons.length; i++) {
                         alertBox.innerHTML = "Congrats! You win the Game.";
                         setTimeout(function () {
                             alertBox.classList.toggle('active');
-                        }, 2000);
+                        }, 3000);
                         disableButtons();
                         newGame.style.display = "block";
                         newGame.addEventListener("click", function () {
                             window.location.reload();
                         });
                     }
-                    else if (guess === 6) {
+                    else if (guess === 5) {
                         alertBox.classList.toggle('active');
-                        alertBox.innerHTML = "Sorry! You loss";
+                        alertBox.innerHTML = "Sorry! You loss. The word is ".concat(correctWord);
                         setTimeout(function () {
                             alertBox.classList.toggle('active');
-                        }, 2000);
+                        }, 3000);
                         disableButtons();
                         newGame.style.display = "block";
                         newGame.addEventListener("click", function () {
@@ -105,6 +108,7 @@ for (var i = 0; i < buttons.length; i++) {
                     guess++;
                     idx = 0;
                     guessedWord = "";
+                    match = [0, 0, 0, 0, 0];
                 }
             }
         }

@@ -38,7 +38,6 @@ for( let i=0; i<buttons.length; i++){
         }else if(letter==='Enter'){ 
             if(idx==correctWord.length){
                 // Have to do some logic work here
-                const matched = [0,0,0,0,0];
                 if(!includes(guessedWord.toLowerCase(), words)){
                     alertBox.classList.toggle('active');
                     alertBox.innerHTML = "Word not in the list !" 
@@ -68,14 +67,18 @@ for( let i=0; i<buttons.length; i++){
 
                     for(let i=0; i<correctWord.length; i++){
                         const letterDiv = document.querySelector(`.character_${guess}${i}`) as HTMLDivElement;
+                        const button = document.querySelector(`#${guessedWord[i].toUpperCase()}`) as HTMLButtonElement;
                         if(match[i]===0){
                             letterDiv.classList.add("incorrect");
+                            button.classList.add("incorrect");
                         }
                         else if(match[i]===1){
                             letterDiv.classList.add("correct");
+                            button.classList.add("correct");
                         }
                         else if(match[i]===2){
                             letterDiv.classList.add("present");
+                            button.classList.add("present");
                         }
                     }
                     if(guessedWord === correctWord){
@@ -83,19 +86,19 @@ for( let i=0; i<buttons.length; i++){
                         alertBox.innerHTML = "Congrats! You win the Game." 
                         setTimeout(()=>{
                             alertBox.classList.toggle('active');
-                        },2000)
+                        },3000)
                         disableButtons();
                         newGame.style.display = "block";
                         newGame.addEventListener("click", () => {
                             window.location.reload();
                         });
                     }
-                    else if(guess === 6){
+                    else if(guess === 5){
                         alertBox.classList.toggle('active');
-                        alertBox.innerHTML = "Sorry! You loss" 
+                        alertBox.innerHTML = `Sorry! You loss. The word is ${correctWord}` 
                         setTimeout(()=>{
                             alertBox.classList.toggle('active');
-                        },2000)
+                        },3000)
                         disableButtons();
                         newGame.style.display = "block";
                         newGame.addEventListener("click", () => {
@@ -106,6 +109,7 @@ for( let i=0; i<buttons.length; i++){
                     guess++;
                     idx = 0;
                     guessedWord = "";
+                    match = [0,0,0,0,0];
                 } 
             }
         }

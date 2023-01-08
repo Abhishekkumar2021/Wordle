@@ -118,7 +118,7 @@ button:active{
 
 .alert{
     position:absolute;
-    background-color: rgb(239, 255, 173);
+    background-color: rgb(217, 255, 65);
     padding:20px 30px;
     border-radius: 5px;
     cursor: pointer;
