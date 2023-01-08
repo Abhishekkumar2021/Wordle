@@ -14,7 +14,7 @@ function includes(word: string, words: string[]): boolean{
     return false;
 }
 
-let correctWord = randomWord();
+let correctWord = 'parry' // randomWord();
 let guessedWord = "";
 let idx = 0;
 let guess = 0;
