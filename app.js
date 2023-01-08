@@ -14,7 +14,6 @@ function includes(word, words) {
     return false;
 }
 var correctWord = randomWord();
-console.log(correctWord);
 var guessedWord = "";
 var idx = 0;
 var guess = 0;
@@ -130,4 +129,28 @@ document.addEventListener("keydown", function (e) {
         var button = document.querySelector("#".concat(e.key.toUpperCase()));
         button.click();
     }
+});
+var correctPos = function () {
+    if (window.innerWidth < 700) {
+        var clear = document.querySelector("#clear");
+        var N = document.querySelector("#N");
+        N.innerText = "Clear";
+        clear.innerText = "N";
+        N.id = "clear";
+        clear.id = "N";
+    }
+    else {
+        var clear = document.querySelector("#clear");
+        var N = document.querySelector("#N");
+        N.innerText = "N";
+        clear.innerText = "Clear";
+        N.id = "N";
+        clear.id = "clear";
+    }
+};
+window.addEventListener("load", function () {
+    correctPos();
+});
+window.addEventListener("resize", function () {
+    correctPos();
 });

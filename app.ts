@@ -15,7 +15,6 @@ function includes(word: string, words: string[]): boolean{
 }
 
 let correctWord = randomWord();
-console.log(correctWord)
 let guessedWord = "";
 let idx = 0;
 let guess = 0;
@@ -133,4 +132,31 @@ document.addEventListener("keydown", (e) => {
         const button = document.querySelector(`#${e.key.toUpperCase()}`) as HTMLButtonElement;
         button.click();
     }
+})
+
+const correctPos = ()=>{
+    if(window.innerWidth<700){
+        const clear = document.querySelector(`#clear`) as HTMLButtonElement;
+        const N = document.querySelector("#N") as HTMLButtonElement;
+        N.innerText = "Clear";
+        clear.innerText = "N";
+        N.id = "clear";
+        clear.id = "N";
+    }
+    else{
+        const clear = document.querySelector(`#clear`) as HTMLButtonElement;
+        const N = document.querySelector("#N") as HTMLButtonElement;
+        N.innerText = "N";
+        clear.innerText = "Clear";
+        N.id = "N";
+        clear.id = "clear";
+    }
+}
+
+window.addEventListener("load", ()=>{
+    correctPos();
+})
+
+window.addEventListener("resize", ()=>{
+    correctPos();
 })

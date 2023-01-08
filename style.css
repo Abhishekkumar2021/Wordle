@@ -145,13 +145,13 @@ button:active{
     }
 
     .buttons{
-        width:400px;
+        width:320px;
         gap:5px;
     }
 
     button{
-        width:50px;
-        font-size: 1rem;
+        width:60px;
+        font-size: 0.8rem;
     }
 }
     
