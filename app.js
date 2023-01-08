@@ -13,7 +13,7 @@ function includes(word, words) {
     }
     return false;
 }
-var correctWord = randomWord();
+var correctWord = 'parry' //randomWord();
 var guessedWord = "";
 var idx = 0;
 var guess = 0;
@@ -59,6 +59,7 @@ for (var i = 0; i < buttons.length; i++) {
                             for (var j = 0; j < correctWord.length; j++) {
                                 if (guessedWord[i_2] === correctWord[j] && match[j] === 0) {
                                     match[i_2] = 2;
+                                    correctWord[j]='#';
                                     break;
                                 }
                             }
