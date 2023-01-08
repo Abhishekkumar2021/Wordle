@@ -134,6 +134,9 @@ button:active{
 
 
 @media screen and (max-width: 700px) {
+    h1{
+        font-size: 1.7rem;
+    }
     .board{
         width:250px;
         height: 300px;
@@ -151,6 +154,7 @@ button:active{
 
     button{
         width:60px;
+        height:35px;
         font-size: 0.8rem;
     }
 }
