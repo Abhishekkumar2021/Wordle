@@ -13,7 +13,7 @@ function includes(word, words) {
     }
     return false;
 }
-var correctWord = 'parry' //randomWord();
+var correctWord = "parry"; //randomWord();
 var guessedWord = "";
 var idx = 0;
 var guess = 0;
@@ -54,29 +54,35 @@ for (var i = 0; i < buttons.length; i++) {
                             match[i_1] = 1;
                         }
                     }
+                    var map = {};
                     for (var i_2 = 0; i_2 < correctWord.length; i_2++) {
                         if (match[i_2] === 0) {
-                            for (var j = 0; j < correctWord.length; j++) {
-                                if (guessedWord[i_2] === correctWord[j] && match[j] === 0) {
-                                    match[i_2] = 2;
-                                    correctWord[j]='#';
-                                    break;
-                                }
+                            if (map[correctWord[i_2]]) {
+                                map[correctWord[i_2]]++;
+                            }
+                            else {
+                                map[correctWord[i_2]] = 1;
                             }
                         }
                     }
-                    for (var i_3 = 0; i_3 < correctWord.length; i_3++) {
-                        var letterDiv = document.querySelector(".character_".concat(guess).concat(i_3));
-                        var button = document.querySelector("#".concat(guessedWord[i_3].toUpperCase()));
-                        if (match[i_3] === 0) {
+                    for (var i_3 = 0; i_3 < guessedWord.length; i_3++) {
+                        if (map[guessedWord[i_3]]) {
+                            match[i_3] = 2;
+                            map[guessedWord[i_3]]--;
+                        }
+                    }
+                    for (var i_4 = 0; i_4 < correctWord.length; i_4++) {
+                        var letterDiv = document.querySelector(".character_".concat(guess).concat(i_4));
+                        var button = document.querySelector("#".concat(guessedWord[i_4].toUpperCase()));
+                        if (match[i_4] === 0) {
                             letterDiv.classList.add("incorrect");
                             button.classList.add("incorrect");
                         }
-                        else if (match[i_3] === 1) {
+                        else if (match[i_4] === 1) {
                             letterDiv.classList.add("correct");
                             button.classList.add("correct");
                         }
-                        else if (match[i_3] === 2) {
+                        else if (match[i_4] === 2) {
                             letterDiv.classList.add("present");
                             button.classList.add("present");
                         }

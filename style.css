@@ -118,12 +118,13 @@ button:active{
 
 .alert{
     position:absolute;
-    background-color: rgb(217, 255, 65);
+    background-color: rgb(61, 69, 82);
     padding:20px 30px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     transform:scale(0);
+    color: white;
     border: 1px solid rgb(245, 245, 245);
 }
 
