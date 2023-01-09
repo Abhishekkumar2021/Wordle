@@ -13,7 +13,7 @@ function includes(word, words) {
     }
     return false;
 }
-var correctWord = "parry"; //randomWord();
+var correctWord = randomWord();
 var guessedWord = "";
 var idx = 0;
 var guess = 0;
