@@ -102,10 +102,10 @@ for( let i=0; i<buttons.length; i++){
                     }
                     else if(guess === 5){
                         alertBox.classList.toggle('active');
-                        alertBox.innerHTML = `Sorry! You loss. The word is ${correctWord}` 
+                        alertBox.innerHTML = `Sorry! You loss. The word is <span>${correctWord}</span>` 
                         setTimeout(()=>{
                             alertBox.classList.toggle('active');
-                        },3000)
+                        },10000)
                         disableButtons();
                         newGame.style.display = "block";
                         newGame.addEventListener("click", () => {
@@ -148,26 +148,22 @@ document.addEventListener("keydown", (e) => {
 const correctPos = ()=>{
     if(window.innerWidth<700){
         const clear = document.querySelector(`#clear`) as HTMLButtonElement;
-        const N = document.querySelector("#N") as HTMLButtonElement;
-        N.innerText = "Clear";
-        clear.innerText = "N";
-        N.id = "clear";
-        clear.id = "N";
+        const B = document.querySelector("#B") as HTMLButtonElement;
+        B.innerText = "Clear";
+        clear.innerText = "B";
+        B.id = "clear";
+        clear.id = "B";
     }
     else{
         const clear = document.querySelector(`#clear`) as HTMLButtonElement;
-        const N = document.querySelector("#N") as HTMLButtonElement;
-        N.innerText = "N";
+        const B = document.querySelector("#B") as HTMLButtonElement;
+        B.innerText = "B";
         clear.innerText = "Clear";
-        N.id = "N";
+        B.id = "B";
         clear.id = "clear";
     }
 }
 
 window.addEventListener("load", ()=>{
-    correctPos();
-})
-
-window.addEventListener("resize", ()=>{
     correctPos();
 })

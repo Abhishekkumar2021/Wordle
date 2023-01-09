@@ -101,10 +101,10 @@ for (var i = 0; i < buttons.length; i++) {
                     }
                     else if (guess === 5) {
                         alertBox.classList.toggle('active');
-                        alertBox.innerHTML = "Sorry! You loss. The word is ".concat(correctWord);
+                        alertBox.innerHTML = "Sorry! You loss. The word is <span>".concat(correctWord, "</span>");
                         setTimeout(function () {
                             alertBox.classList.toggle('active');
-                        }, 3000);
+                        }, 10000);
                         disableButtons();
                         newGame.style.display = "block";
                         newGame.addEventListener("click", function () {
@@ -144,24 +144,21 @@ document.addEventListener("keydown", function (e) {
 var correctPos = function () {
     if (window.innerWidth < 700) {
         var clear = document.querySelector("#clear");
-        var N = document.querySelector("#N");
-        N.innerText = "Clear";
-        clear.innerText = "N";
-        N.id = "clear";
-        clear.id = "N";
+        var B = document.querySelector("#B");
+        B.innerText = "Clear";
+        clear.innerText = "B";
+        B.id = "clear";
+        clear.id = "B";
     }
     else {
         var clear = document.querySelector("#clear");
-        var N = document.querySelector("#N");
-        N.innerText = "N";
+        var B = document.querySelector("#B");
+        B.innerText = "B";
         clear.innerText = "Clear";
-        N.id = "N";
+        B.id = "B";
         clear.id = "clear";
     }
 };
 window.addEventListener("load", function () {
-    correctPos();
-});
-window.addEventListener("resize", function () {
     correctPos();
 });

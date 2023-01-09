@@ -16,37 +16,47 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #22272e;
     gap:20px;
 }
 
 h1{
     font-size: 2.5rem;
-    color: rgb(52, 52, 52);
+    color: rgb(225, 225, 225);
+    background:rgba(255, 255, 255, 0.114);
+    padding: 10px 20px;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);;
 }
 
 .board{
-    width: 350px;
-    height: 420px;
+    width: 340px;
+    height: 430px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid rgb(227, 227, 227);
+    gap:10px;
 }
 
 .word{
-    flex: 1;
+    width:100%;
     display:flex;
+    justify-content: space-evenly;
 }
 .word div{
-    border: 1px solid rgb(227, 227, 227);
-    width: 70px;
-    height:70px;
+    border: 1px solid rgb(78, 78, 78);
+    width: 60px;
+    height:60px;
     display:flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
     transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color:rgba(255, 255, 255, 0.058);
+    color:rgba(255, 255, 255, 0.89);
+    border-radius: 5px;
 }
 
 .buttons{
@@ -67,13 +77,12 @@ button{
     transition: all 0.3s ease-in-out;
     border:none;
     outline:none;
-    color: rgb(52, 52, 52);
-    background-color: rgb(234, 234, 234);
-    
+    color: rgb(225, 225, 225);
+    background-color:rgba(255, 255, 255, 0.114);
 }
 
 button:hover{
-    background-color: rgb(227, 227, 227);
+    background-color:rgba(255, 255, 255, 0.296);
 }
 
 button:active{
@@ -81,18 +90,15 @@ button:active{
 }
 
 .correct{
-    background-color: rgb(86, 171, 86); 
-    color:white;
+    background-color: rgb(86, 171, 86) !important; 
 }
 
 .present{
-    background-color: rgb(203, 203, 77);
-    color:white;
+    background-color: rgb(140, 137, 53) !important;
 }
 
 .incorrect{
-    background-color: rgb(93, 93, 93);
-    color:white;
+    background-color: rgb(94, 94, 94) !important;
 }
 
 .new{
@@ -118,14 +124,17 @@ button:active{
 
 .alert{
     position:absolute;
-    background-color: rgb(61, 69, 82);
+    background-color: rgb(38, 41, 47);
     padding:20px 30px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     transform:scale(0);
+    border: 1px solid rgba(255, 255, 255, 0.138);
     color: white;
-    border: 1px solid rgb(245, 245, 245);
+    box-shadow: 0 0 200px 1000px rgba(255, 255, 255, 0.138);
+    display:flex;
+    align-items: center;
 }
 
 .active{
@@ -136,16 +145,17 @@ button:active{
 
 @media screen and (max-width: 700px) {
     h1{
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
     .board{
         width:250px;
-        height: 300px;
+        height: 280px;
+        gap:5px;
     }
 
     .word div{
-        width:50px;
-        height:50px;
+        width:45px;
+        height:45px;
     }
 
     .buttons{
@@ -154,9 +164,29 @@ button:active{
     }
 
     button{
-        width:60px;
+        width:35px;
         height:35px;
         font-size: 0.8rem;
     }
+    #enter, #clear{
+        width:75px;
+    }
 }
     
+@keyframes spread {
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.2);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+span{
+    font-size:40px;
+    color:lightgreen;
+    padding:10px;
+}
