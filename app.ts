@@ -54,7 +54,7 @@ for( let i=0; i<buttons.length; i++){
                             match[i] = 1;
                         }
                     }
-                    let map: {[key: string]: number} = {};
+                    let map = {};
                     for(let i=0; i<correctWord.length; i++){
                         if(match[i]===0){
                             if(map[correctWord[i]]){
