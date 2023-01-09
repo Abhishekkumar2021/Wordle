@@ -90,11 +90,13 @@ button:active{
 }
 
 .correct{
-    background-color: rgb(86, 171, 86) !important; 
+    background-color: rgb(86, 171, 86) !important;
+    animation: spread 0.3s linear; 
 }
 
 .present{
-    background-color: rgb(140, 137, 53) !important;
+    background-color: rgba(214, 163, 52, 0.796) !important;
+    animation: spread 0.3s linear; 
 }
 
 .incorrect{
