@@ -54,18 +54,24 @@ for( let i=0; i<buttons.length; i++){
                             match[i] = 1;
                         }
                     }
+                    let map: {[key: string]: number} = {};
                     for(let i=0; i<correctWord.length; i++){
                         if(match[i]===0){
-                            for(let j=0; j<correctWord.length; j++){
-                                if(guessedWord[i]===correctWord[j] && match[j]===0){
-                                    match[i] = 2;
-                                    correctWord[j]='#';
-                                    break;
-                                }
+                            if(map[correctWord[i]]){
+                                map[correctWord[i]]++;
+                            }
+                            else{
+                                map[correctWord[i]] = 1;
                             }
                         }
                     }
-
+                    for(let i=0; i<guessedWord.length; i++){
+                        if(map[guessedWord[i]]){
+                            match[i] = 2;
+                            map[guessedWord[i]]--;
+                        }
+                    }
+                    
                     for(let i=0; i<correctWord.length; i++){
                         const letterDiv = document.querySelector(`.character_${guess}${i}`) as HTMLDivElement;
                         const button = document.querySelector(`#${guessedWord[i].toUpperCase()}`) as HTMLButtonElement;
