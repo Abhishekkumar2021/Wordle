@@ -16,11 +16,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background: url('https://images.unsplash.com/photo-1500206329404-5057e0aefa48?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80');
-    background-position:center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #22272e;
     gap:20px;
 }
 
@@ -29,7 +25,7 @@ h1{
     color: rgb(225, 225, 225);
     background:rgba(255, 255, 255, 0.114);
     padding: 10px 20px;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);;
 }
 
@@ -61,7 +57,6 @@ h1{
     background-color:rgba(255, 255, 255, 0.058);
     color:rgba(255, 255, 255, 0.89);
     border-radius: 5px;
-    backdrop-filter: blur(5px);
 }
 
 .buttons{
@@ -84,7 +79,6 @@ button{
     outline:none;
     color: rgb(225, 225, 225);
     background-color:rgba(255, 255, 255, 0.114);
-    backdrop-filter: blur(5px);
 }
 
 button:hover{
