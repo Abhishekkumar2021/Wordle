@@ -79,12 +79,14 @@ button{
     font-size: 1.2rem;
     cursor: pointer;
     border-radius: 4px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    user-select: none;
     border:none;
     outline:none;
     color: rgb(225, 225, 225);
     background-color:rgba(255, 255, 255, 0.114);
 }
+
 
 button:hover{
     background-color:rgba(255, 255, 255, 0.296);
@@ -124,7 +126,7 @@ button:active{
 }
 
 .new:hover{
-    background-color: rgb(52, 52, 52);
+    background-color: rgb(60, 62, 65);
 }
 
 .new:active{
@@ -157,6 +159,7 @@ button:active{
 
 
 
+
 @media screen and (max-width: 700px) {
     body{
         gap:40px;
@@ -185,6 +188,7 @@ button:active{
         width:25px;
         height:35px;
         font-size: 0.8rem;
+        transition: 0.1s ease all;
     }
     #enter, #clear{
         width:45px;
