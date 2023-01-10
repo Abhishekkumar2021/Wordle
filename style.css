@@ -45,7 +45,6 @@ h1{
     justify-content: space-evenly;
 }
 .word div{
-    border: 1px solid rgb(78, 78, 78);
     width: 60px;
     height:60px;
     display:flex;
@@ -53,10 +52,16 @@ h1{
     align-items: center;
     font-size: 1.5rem;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    background-color:rgba(255, 255, 255, 0.058);
+    background-color:rgba(255, 255, 255, 0.116);
     color:rgba(255, 255, 255, 0.89);
-    border-radius: 5px;
+    border-radius: 3px;
+    border: 1px solid rgba(128, 128, 128, 0.321);
+}
+
+.word div:hover{
+    background-color: skyblue;
+    color: rgb(59, 72, 77);
+    cursor: pointer;
 }
 
 .buttons{
@@ -69,7 +74,7 @@ h1{
 }
 
 button{
-    width: 85px;
+    width: 35px;
     height: 50px; 
     font-size: 1.2rem;
     cursor: pointer;
@@ -89,7 +94,7 @@ button:active{
     transform: scale(0.9);
 }
 .incorrect{
-    background-color: rgb(94, 94, 94) !important;
+    background-color: rgb(114, 114, 114) !important;
     animation: rotate 1.2s linear; 
 }
 
@@ -144,22 +149,31 @@ button:active{
 .active{
     transform:scale(1);
 }
+#enter, #clear{
+    width:70px;
+    background-color: skyblue;
+    color: rgb(59, 72, 77);
+}
 
 
 
 @media screen and (max-width: 700px) {
+    body{
+        gap:40px;
+    }
     h1{
         font-size: 1.6rem;
+        transform:translateY(-30px)
     }
     .board{
-        width:250px;
-        height: 280px;
+        width:300px;
+        height: 300px;
         gap:5px;
     }
 
     .word div{
-        width:45px;
-        height:45px;
+        width:50px;
+        height:50px;
     }
 
     .buttons{
@@ -168,12 +182,12 @@ button:active{
     }
 
     button{
-        width:35px;
+        width:25px;
         height:35px;
         font-size: 0.8rem;
     }
     #enter, #clear{
-        width:75px;
+        width:45px;
     }
 }
     
@@ -189,8 +203,24 @@ button:active{
     }
 }
 
+@keyframes scale {
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.1);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
 span{
     font-size:40px;
     color:lightgreen;
     padding:10px;
+}
+
+.scale{
+    animation: scale 0.5s linear; 
 }

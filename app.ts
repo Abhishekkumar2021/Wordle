@@ -33,6 +33,7 @@ for( let i=0; i<buttons.length; i++){
                 idx--;
                 const letterDiv = document.querySelector(`.character_${guess}${idx}`) as HTMLDivElement;
                 letterDiv.innerHTML = "";
+                letterDiv.classList.toggle("scale");
                 guessedWord = guessedWord.slice(0,idx);
             }
         }else if(letter==='Enter'){ 
@@ -46,9 +47,11 @@ for( let i=0; i<buttons.length; i++){
                     },2000)  
                 }
                 else{
-                    let match = [0,0,0,0,0];
+                    const match = [0,0,0,0,0];
                     // 1 => match, 0 => not match, 2 => present
                     guessedWord = guessedWord.toLowerCase();
+                    // alert(guessedWord)
+                    // alert(correctWord)
                     for(let i=0; i<correctWord.length; i++){
                         if(guessedWord[i]===correctWord[i]){
                             match[i] = 1;
@@ -56,7 +59,7 @@ for( let i=0; i<buttons.length; i++){
                     }
                     let map = {};
                     for(let i=0; i<correctWord.length; i++){
-                        if(match[i]===0){
+                        if(match[i]!==1){
                             if(map[correctWord[i]]){
                                 map[correctWord[i]]++;
                             }
@@ -66,7 +69,7 @@ for( let i=0; i<buttons.length; i++){
                         }
                     }
                     for(let i=0; i<guessedWord.length; i++){
-                        if(map[guessedWord[i]]){
+                        if(match[i] !== 1 && map[guessedWord[i]]){
                             match[i] = 2;
                             map[guessedWord[i]]--;
                         }
@@ -116,7 +119,6 @@ for( let i=0; i<buttons.length; i++){
                     guess++;
                     idx = 0;
                     guessedWord = "";
-                    match = [0,0,0,0,0];
                 } 
             }
         }
@@ -124,6 +126,7 @@ for( let i=0; i<buttons.length; i++){
             guessedWord += letter;
             const letterDiv = document.querySelector(`.character_${guess}${idx}`) as HTMLDivElement;
             letterDiv.innerHTML = letter;
+            letterDiv.classList.toggle("scale");
             idx++;
         }
         
@@ -145,25 +148,3 @@ document.addEventListener("keydown", (e) => {
     }
 })
 
-const correctPos = ()=>{
-    if(window.innerWidth<700){
-        const clear = document.querySelector(`#clear`) as HTMLButtonElement;
-        const B = document.querySelector("#B") as HTMLButtonElement;
-        B.innerText = "Clear";
-        clear.innerText = "B";
-        B.id = "clear";
-        clear.id = "B";
-    }
-    else{
-        const clear = document.querySelector(`#clear`) as HTMLButtonElement;
-        const B = document.querySelector("#B") as HTMLButtonElement;
-        B.innerText = "B";
-        clear.innerText = "Clear";
-        B.id = "B";
-        clear.id = "clear";
-    }
-}
-
-window.addEventListener("load", ()=>{
-    correctPos();
-})

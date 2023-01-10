@@ -32,6 +32,7 @@ for (var i = 0; i < buttons.length; i++) {
                 idx--;
                 var letterDiv = document.querySelector(".character_".concat(guess).concat(idx));
                 letterDiv.innerHTML = "";
+                letterDiv.classList.toggle("scale");
                 guessedWord = guessedWord.slice(0, idx);
             }
         }
@@ -49,6 +50,8 @@ for (var i = 0; i < buttons.length; i++) {
                     var match = [0, 0, 0, 0, 0];
                     // 1 => match, 0 => not match, 2 => present
                     guessedWord = guessedWord.toLowerCase();
+                    // alert(guessedWord)
+                    // alert(correctWord)
                     for (var i_1 = 0; i_1 < correctWord.length; i_1++) {
                         if (guessedWord[i_1] === correctWord[i_1]) {
                             match[i_1] = 1;
@@ -56,7 +59,7 @@ for (var i = 0; i < buttons.length; i++) {
                     }
                     var map = {};
                     for (var i_2 = 0; i_2 < correctWord.length; i_2++) {
-                        if (match[i_2] === 0) {
+                        if (match[i_2] !== 1) {
                             if (map[correctWord[i_2]]) {
                                 map[correctWord[i_2]]++;
                             }
@@ -66,7 +69,7 @@ for (var i = 0; i < buttons.length; i++) {
                         }
                     }
                     for (var i_3 = 0; i_3 < guessedWord.length; i_3++) {
-                        if (map[guessedWord[i_3]]) {
+                        if (match[i_3] !== 1 && map[guessedWord[i_3]]) {
                             match[i_3] = 2;
                             map[guessedWord[i_3]]--;
                         }
@@ -115,7 +118,6 @@ for (var i = 0; i < buttons.length; i++) {
                     guess++;
                     idx = 0;
                     guessedWord = "";
-                    match = [0, 0, 0, 0, 0];
                 }
             }
         }
@@ -123,6 +125,7 @@ for (var i = 0; i < buttons.length; i++) {
             guessedWord += letter;
             var letterDiv = document.querySelector(".character_".concat(guess).concat(idx));
             letterDiv.innerHTML = letter;
+            letterDiv.classList.toggle("scale");
             idx++;
         }
     });
@@ -140,25 +143,4 @@ document.addEventListener("keydown", function (e) {
         var button = document.querySelector("#".concat(e.key.toUpperCase()));
         button.click();
     }
-});
-var correctPos = function () {
-    if (window.innerWidth < 700) {
-        var clear = document.querySelector("#clear");
-        var B = document.querySelector("#B");
-        B.innerText = "Clear";
-        clear.innerText = "B";
-        B.id = "clear";
-        clear.id = "B";
-    }
-    else {
-        var clear = document.querySelector("#clear");
-        var B = document.querySelector("#B");
-        B.innerText = "B";
-        clear.innerText = "Clear";
-        B.id = "B";
-        clear.id = "clear";
-    }
-};
-window.addEventListener("load", function () {
-    correctPos();
 });
